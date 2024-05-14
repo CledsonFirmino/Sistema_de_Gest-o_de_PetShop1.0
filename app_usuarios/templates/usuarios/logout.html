@@ -1,0 +1,10 @@
+{% extends 'cadastros/base.html' %} {% load crispy_forms_tags %}
+{% block conteudo %}
+<div class="container" style="padding: 30px">
+  <h1>Você saiu do sistema</h1>
+  <form method="GET" action="{% url 'login' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-info">Fazer login novamente</button>
+  </form>
+</div>
+{% endblock %}
