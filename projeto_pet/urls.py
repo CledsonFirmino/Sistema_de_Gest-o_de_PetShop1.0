@@ -15,5 +15,5 @@ urlpatterns = [
     path("novo_cadastro/", views.criar, name="novo_cadastro"),
     path("novo_cadastro/<int:id_cliente>", views.editar, name="editar"),
     path("excluir_cliente/<int:id_cliente>", views.excluir, name="excluir"),
-    path("/<int:id_cliente>", views.detalhe, name="detalhe"),
+    path("<int:id_cliente>", views.detalhe, name="detalhe"),
 ]
