@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from datetime import date
+from models import Cadastro_cliente
+
 
 OPCOES_RACA = ((1,'Border Collie'),(2,'Buldogue francês'),(3,'Buldogue inglês'),(4,'Chihuahua'),(5,'Dachshund'),
                (6,'Fila Brasileiro'),(7,'Fox Terrier'),(8,'Golden Retriever'),(9,'Husky'),(10,'Labrador'),(11,'Lhasa Apso'),
@@ -13,16 +15,9 @@ OPCOES_PELAGEM = ((1,'Longa'),(2,'Curta'), (3,'Encaracolado'),(4,'Dupla'),(5,'Pe
 
 OPCOES_BANHO = ((1,'Simples'),(2,'Composto'), (3,'Hidratação'),)  
 
-OPCOES_TOSA = ((1,'Tosa Higiênica'),(2,'Tosa na Tesoura'), (3,'Tosa Verão'),(4,'Tosa na Máquina'),(5,'Tosa Bebê'),(6,'Tosa da Raça'),)  
-                  
+OPCOES_TOSA = ((1,'Tosa Higiênica'),(2,'Tosa na Tesoura'), (3,'Tosa Verão'),(4,'Tosa na Máquina'),(5,'Tosa Bebê'),(6,'Tosa da Raça'),)               
 
-# DADOS DO CLIENTE
-class Cadastro_cliente (models.Model):
-    # Cliente fez compra de objetos, pet ou serviços pode ou não ter pet
-    nome_cliente = models.CharField(max_length=100)
-    #dono_pet = models.ForeignKey(Cadastro_pet, on_delete=models.DO_NOTHING) 
-    endereco = models.CharField(max_length=150)
-    contato = models.CharField (max_length=20)
+
 # DADOS DO PET
 class Cadastro_pet (models.Model):
     nome_pet = models.CharField(max_length=50)

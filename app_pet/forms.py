@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from .models import Cadastro_cliente
+from .models import Cadastro_pet
 
-class CadastroClienteForm(ModelForm):
+class CadastroPetForm(ModelForm):
 
         class Meta:
-            model = Cadastro_cliente
+            model = Cadastro_pet
             fields = '__all__'
