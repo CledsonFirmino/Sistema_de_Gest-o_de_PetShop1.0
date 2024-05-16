@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from app_clientes import views
+from app_pet import views
 from app_usuarios import views as usuario_views
 from django.contrib.auth import views as auth_views
 
@@ -18,7 +18,7 @@ urlpatterns = [
     path("excluir_cliente/<int:id_cliente>", views.excluir, name="excluir"),
     path("<int:id_cliente>", views.detalhe, name="detalhe"),
     # PETS
-    path("", views.pets, name="pets"),
+    path("", views.pet, name="pets"),
     # VENDAS
-    path("", views.vendas, name="vendas"),
+   # path("", views.vendas, name="vendas"),
 ]
