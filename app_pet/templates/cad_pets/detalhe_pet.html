@@ -1,4 +1,4 @@
-{% extends 'cad_pets/base.html' %}
+{% extends 'cad_pets/base_pet.html' %}
 {% block conteudo %}
 <h1 style='text-align: center;' >DETALHE DO PET</h1>
 <!--
@@ -26,18 +26,37 @@
 -->
 <div class="container">
 <button  class='btn btn-info' style='margin-bottom:10px;'><a  style='color: white; text-decoration: none' href="{% url 'pets' %}">Retornar a Lista de Pets</a></button>
-<table class='table table-striped table-bordered'>    
+<table class='table table-striped table-bordered'>     
     <tr>
         <th>Id</th>
-        <th>Cliente</th>
-        <th>Endereço</th>
-        <th>Contato</th>
+        <th>Pet</th>
+        <th>Tutor</th>
+        <th>Idade</th>
+        <th>Aniversário</th>
+        <th>Raça</th>
+        <th>Porte</th>
+        <th>Pelagem</th>
+        <th>Foto</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>    
     <tr>
         <td>{{dados.id}}</td>
-        <td>{{dados.nome_cliente}}</td>
-        <td>{{dados.endereco}}</td>
-        <td>{{dados.contato}}</td>
+        <td>{{dados.nome_pet}}</td>
+        <td>{{dados.nome_dono}}</td>
+        <td>{{dados.idade_pet}}</td>
+        <td>{{dados.data_aniversario}}</td>
+        <td>{{dados.raca}}</td>
+        <td>{{dados.porte}}</td>
+        <td>{{dados.pelagem}}</td>
+        <td>{{dados.foto}}</td>        
     </tr>
 </table>
 </div>

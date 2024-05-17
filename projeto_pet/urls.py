@@ -12,13 +12,13 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='usuarios/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='usuarios/logout.html'), name='logout'),
     # CLIENTES
-    path("", views.cliente, name="clientes"),
-    path("novo_cadastro/", views.criar, name="novo_cadastro"),
-    path("novo_cadastro/<int:id_cliente>", views.editar, name="editar"),
-    path("excluir_cliente/<int:id_cliente>", views.excluir, name="excluir"),
-    path("<int:id_cliente>", views.detalhe, name="detalhe"),
+    path("", views.cliente, name="cliente"),
+    path("novo_cliente/", views.criar_cliente, name="novo_cliente"),
+    path("novo_cliente/<int:id_cliente>", views.editar_cliente, name="editar_cliente"),
+    path("exclusao_cliente/<int:id_cliente>", views.excluir_cliente, name="excluir_cliente"),
+    path("<int:id_cliente>", views.detalhe_cliente, name="detalhe_cliente"),
     # PETS
-    path("", views.pet, name="pets"),
+    path("", views.pet, name="pet"),
     # VENDAS
    # path("", views.vendas, name="vendas"),
 ]

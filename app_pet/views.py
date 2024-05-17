@@ -12,16 +12,16 @@ def cliente (request):
     dados_cliente = {
         'dados_cliente': Cadastro_cliente.objects.all()
     }
-    return render (request, 'cad_clientes/cliente.html',context=dados_cliente)
+    return render (request, 'cad_clientes/clientes.html',context=dados_cliente)
 
-def detalhe (request ,id_cliente):
+def detalhe_cliente (request ,id_cliente):
     dados = {
         'dados':Cadastro_cliente.objects.get(pk=id_cliente)
     }
-    return render (request,'cad_clientes/detalhe.html', dados)
+    return render (request,'cad_clientes/detalhe_cliente.html', dados)
 
 @login_required
-def criar (request):
+def criar_cliente (request):
     if request.method == 'POST':
         form_cliente = CadastroClienteForm(request.POST)
         if form_cliente.is_valid():
@@ -32,15 +32,15 @@ def criar (request):
         form_cliente = {
         'form_cliente': cliente_form             
         }
-        return render (request, 'cad_clientes/novo_cadastro.html', context=form_cliente)
+        return render (request, 'cad_clientes/novo_cliente.html', context=form_cliente)
 
 @login_required    
-def editar(request,id_cliente):
+def editar_cliente(request,id_cliente):
     cliente = Cadastro_cliente.objects.get(pk=id_cliente)
             #novo_cadastro/1 -> GET
     if request.method == 'GET':
             form_cliente = CadastroClienteForm(instance=cliente)
-            return render (request, 'cad_clientes/novo_cadastro.html', {'form_cliente': form_cliente})
+            return render (request, 'cad_clientes/novo_cliente.html', {'form_cliente': form_cliente})
             #caso requisição seja POST
     else:
         form_cliente =  CadastroClienteForm(request.POST, instance=cliente)
@@ -49,7 +49,7 @@ def editar(request,id_cliente):
         return redirect('clientes') 
     
 @login_required    
-def excluir (request,id_cliente):
+def excluir_cliente (request,id_cliente):
     cliente = Cadastro_cliente.objects.get(pk=id_cliente)
     if request.method =='POST':
          cliente.delete()
@@ -57,7 +57,7 @@ def excluir (request,id_cliente):
     # Aqui no item deve-se escolher e passar o que deseja referneciar do banco de dados, ex.: nome, idade etc
     # na página html, neste caso confirmar_exclusao.html
     #  <h1 style="text-align:center;">Confirmar exclusão do Cliente, {{item.nome_cliente}} ? </h1>
-    return render (request, 'cad_clientes/confirmar_exclusao.html', {'item': cliente}
+    return render (request, 'cad_clientes/exclusao_cliente.html', {'item': cliente}
     )
 
 # # LÓGICA DE CADASTRO DOS PETS
@@ -68,14 +68,14 @@ def pet (request):
     }
     return render (request, 'cad_pets/pets.html',context=dados_pet)
 
-def detalhe (request ,id_pet):
+def detalhe_pet (request ,id_pet):
     dados = {
         'dados':Cadastro_pet.objects.get(pk=id_pet)
     }
-    return render (request,'cad_pets/detalhe.html', dados)
+    return render (request,'cad_pets/detalhe_pet.html', dados)
 
 @login_required
-def criar (request):
+def criar_pet (request):
     if request.method == 'POST':
         form_pet = CadastroPetForm(request.POST)
         if form_pet.is_valid():
@@ -86,15 +86,15 @@ def criar (request):
         form_pet = {
         'form_pet': pet_form             
         }
-        return render (request, 'cad_pets/novo_cadastro.html', context=form_pet)
+        return render (request, 'cad_pets/novo_pet.html', context=form_pet)
 
 @login_required    
-def editar(request,id_pet):
+def editar_pet(request,id_pet):
     pet = Cadastro_pet.objects.get(pk=id_pet)
             #novo_cadastro/1 -> GET
     if request.method == 'GET':
             form_pet = CadastroPetForm(instance=pet)
-            return render (request, 'cad_pets/novo_cadastro.html', {'form_pet': form_pet})
+            return render (request, 'cad_pets/novo_pet.html', {'form_pet': form_pet})
             #caso requisição seja POST
     else:
         form_pet =  CadastroPetForm(request.POST, instance=pet)
@@ -103,7 +103,7 @@ def editar(request,id_pet):
         return redirect('pets') 
     
 @login_required    
-def excluir (request,id_pet):
+def excluir_pet (request,id_pet):
     pet = Cadastro_pet.objects.get(pk=id_pet)
     if request.method =='POST':
          pet.delete()
@@ -111,7 +111,7 @@ def excluir (request,id_pet):
     # Aqui no item deve-se escolher e passar o que deseja referneciar do banco de dados, ex.: nome, idade etc
     # na página html, neste caso confirmar_exclusao.html
     #  <h1 style="text-align:center;">Confirmar exclusão do Cliente, {{item.nome_cliente}} ? </h1>
-    return render (request, 'cad_pets/confirmar_exclusao.html', {'item': pet}
+    return render (request, 'cad_pets/exclusao_pet.html', {'item': pet}
     )
 # # LÓGICA DE CADASTRO DAS VENDAS SERVIÇOS
 #-----------------------------------------------------------------------------------------
