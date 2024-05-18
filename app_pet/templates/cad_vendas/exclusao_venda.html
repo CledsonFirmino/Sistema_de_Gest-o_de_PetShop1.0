@@ -1,0 +1,12 @@
+{% extends 'cad_vendas/base_venda.html' %}
+{% block conteudo %}
+<div class="container">
+    <form method='POST'>
+        {% csrf_token %}
+        <!--Aqui iremos chamar o item do banco chamando pelo nome, sendo opcional chamar por outro item correspondente-->
+        <h1 style="text-align:center;">Confirmar exclusão da Venda, {{item.cliente_compra}} ? </h1>
+        <button  class='btn btn-info' style='margin-bottom:10px;'><a  style='color: white; text-decoration: none' href="{% url 'venda' %}">Cancelar</a></button>
+        <button class="btn btn-danger" type="submit"  style='margin-bottom:10px;'>Confirmar</button>
+    </form>
+</div>
+{% endblock %}

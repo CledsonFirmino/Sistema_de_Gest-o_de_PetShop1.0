@@ -1,13 +1,18 @@
-{% extends 'cad_pets/base_pet.html'%} 
-{% block conteudo %}
+{% extends 'cad_pets/base_pet.html'%} {% block conteudo %}
 {% load crispy_forms_tags %}
-     <div class="container">
-     <h1>Formulário Novo Pet</h1>
-     <form action="" method="POST">
-     {% csrf_token %} 
-     {{form_pet|crispy}}
-     <button type="submit"  style='margin-bottom:10px;' class="btn btn-success" >Salvar</button>
-     <button  class='btn btn-info' style='margin-bottom:10px;'><a  style='color: white; text-decoration: none' href="{% url 'pets' %}">Retornar a Lista de Pets</a></button>
-     </form>
-     </div>
-{%  endblock %}
+<div class="container">
+  <h1>Formulário Novo Pet</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{form_pet|crispy}}
+    <button type="submit" style="margin-bottom: 10px" class="btn btn-success">
+      Salvar
+    </button>
+    <button class="btn btn-info" style="margin-bottom: 10px">
+      <a style="color: white; text-decoration: none" href="{% url 'pet' %}"
+        >Lista de Pets</a
+      >
+    </button>
+  </form>
+</div>
+{% endblock %}

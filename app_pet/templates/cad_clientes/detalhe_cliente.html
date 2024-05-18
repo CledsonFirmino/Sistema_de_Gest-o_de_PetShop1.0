@@ -1,6 +1,6 @@
 {% extends 'cad_clientes/base_cliente.html' %}
 {% block conteudo %}
-<h1 style='text-align: center;' >DETALHE DO CLIENTE</h1>
+<h1 style="text-align: center">DETALHE DO CLIENTE</h1>
 <!--
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,20 +25,33 @@
 </nav>
 -->
 <div class="container">
-<button  class='btn btn-info' style='margin-bottom:10px;'><a  style='color: white; text-decoration: none' href="{% url 'clientes' %}">Retornar a Lista de Cliente</a></button>
-<table class='table table-striped table-bordered'>    
+  <button class="btn btn-info" style="margin-bottom: 10px">
+    <a style="color: white; text-decoration: none" href="{% url 'cliente' %}"
+      >Lista de Clientes</a
+    >
+  </button>
+  <button class="btn btn-info" style="margin-bottom: 10px">
+    <a style="color: white; text-decoration: none" href="{% url 'pet' %}"
+      >Lista de Pets</a
+    >
+  </button>
+  <table class="table table-striped table-bordered">
     <tr>
-        <th>Id</th>
-        <th>Cliente</th>
-        <th>Endereço</th>
-        <th>Contato</th>
-    </tr>    
-    <tr>
-        <td>{{dados.id}}</td>
-        <td>{{dados.nome_cliente}}</td>
-        <td>{{dados.endereco}}</td>
-        <td>{{dados.contato}}</td>
+      <th>Id</th>
+      <th>Cliente</th>
+      <th>Endereço</th>
+      <th>Contato</th>
+      <th>Pet</th>
+      <th>Foto</th>    
     </tr>
-</table>
+    <tr>
+      <td>{{dados_c.id}}</td>
+      <td>{{dados_c.nome_cliente}}</td>
+      <td>{{dados_c.endereco}}</td>
+      <td>{{dados_c.contato}}</td>
+      <td>{{dados_p.nome_pet}}</td>
+      <td>{{dados_p.foto}}</td>
+    </tr>
+  </table>
 </div>
 {% endblock %}

@@ -1,17 +1,17 @@
-{% extends 'cad_clientes/base_cliente.html'%}
+{% extends 'cad_vendas/base_venda.html'%}
 {% block conteudo %}
 {% load crispy_forms_tags %}
 <div class="container">
-  <h1>Formulário Novo Cliente</h1>
+  <h1>Formulário Nova Venda</h1>
   <form action="" method="POST">
     {% csrf_token %}
-    {{form_cliente|crispy}}
+    {{form_venda|crispy}}
     <button type="submit" style="margin-bottom: 10px" class="btn btn-success">
       Salvar
     </button>
     <button class="btn btn-info" style="margin-bottom: 10px">
-      <a style="color: white; text-decoration: none" href="{% url 'cliente' %}"
-        >Lista de Clientes</a
+      <a style="color: white; text-decoration: none" href="{% url 'venda' %}"
+        >Lista de Vendas</a
       >
     </button>
   </form>
